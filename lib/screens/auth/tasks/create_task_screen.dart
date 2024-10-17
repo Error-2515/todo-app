@@ -22,7 +22,7 @@ class CreateTaskScreen extends StatelessWidget {
         ),
         body: Column(
           children: [
-            customTextInput(
+            CustomTextInput(
               controller: _title,
               icon: Icon(Icons.abc),
               isObscure: false,

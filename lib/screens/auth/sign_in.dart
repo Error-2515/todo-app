@@ -20,13 +20,13 @@ class SignInScreen extends StatelessWidget{
                 style: TextStyle(fontSize: 28, fontWeight: FontWeight.w400),
                          ),
              ),
-             customTextInput(
+             CustomTextInput(
               controller: _Email ,
               icon: Icon(Icons.email),
               isObscure: false,
               hint: 'enter your email',
               keyboard: TextInputType.emailAddress,),
-              customTextInput(
+              CustomTextInput(
               controller: _Password ,
               icon: Icon(Icons.password),
               isObscure: true,
@@ -39,12 +39,12 @@ class SignInScreen extends StatelessWidget{
                   final String email= _Email.text;
                   final String password= _Password.text;
                   await auth.signInWithEmailAndPassword(email: email, password: password);
-                  Navigator.pushNamed(context, '/home');
+                  Navigator.pushReplacementNamed(context, '/home');
                 }, child: Text('sign-in')),
               ),
               TextButton(onPressed: () {
                 //*Navigate to register screen
-                Navigator.pushNamed(context, '/register');
+                Navigator.pushReplacementNamed(context, '/register');
               }, child: Text('register here'))
               
               

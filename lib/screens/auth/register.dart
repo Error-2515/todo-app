@@ -26,17 +26,17 @@ class RegistrationScreen extends StatelessWidget{
         ),
         body: Column(
           children: [
-            customTextInput(
+            CustomTextInput(
               controller: _name,
               icon: Icon(Icons.person),
               isObscure: false,
               hint: 'enter your name'),
-              customTextInput(
+              CustomTextInput(
               controller: _email,
               icon: Icon(Icons.email),
               isObscure: false,
               hint: 'enter your email'),
-              customTextInput(
+              CustomTextInput(
               controller: _password,
               icon: Icon(Icons.password),
               isObscure: true,
@@ -47,7 +47,9 @@ class RegistrationScreen extends StatelessWidget{
                 final String password = _password.text;
                 auth.createUserWithEmailAndPassword(email: email, password: password);
       
-                Navigator.pushNamed(context, '/home');
+                if (FirebaseAuth.instance.currentUser != null) {
+                    Navigator.pushReplacementNamed(context, '/home');
+                    };
               }, child: Text('Register'))
           ],
       
